@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\APIContohController;
 use App\Http\Middleware\Adminmiddleware;
@@ -41,8 +42,9 @@ Route::prefix("v1")->group(function () {
     //     Route::apiResource("products", ProductController::class);
     // });
 
-    Route::middleware(Adminmiddleware::class)->group(function () { #middle wear itu semcam session, butuh login terlebih dahulu
+    Route::middleware(['auth:sanctum',Adminmiddleware::class])->group(function () { #middle wear itu semcam session, butuh login terlebih dahulu
         Route::apiResource("products", ProductController::class);
+        Route::apiResource("posts", PostController::class);
     });
 
     // Route::middleware("auth:sanctum")->group(function () {

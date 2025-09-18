@@ -55,5 +55,13 @@ class User extends Authenticatable
     public function isUser(){
         return $this->role === 'user';
     }
+
+    public function post(){
+        return $this->hasOne(PostsModel::class);
+    }
+
+    public function post_log(){
+        return $this->hasOne(PostLogsModel::class);
+    }
     
 }
