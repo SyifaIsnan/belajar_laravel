@@ -22,7 +22,7 @@ class PostsModel extends Model
     }
 
     public function post_log(){
-        return $this->hasOne(PostLogsModel::class);
+        return $this->hasOne(PostLogsModel::class, 'post_id', 'id');
     }
 
 }

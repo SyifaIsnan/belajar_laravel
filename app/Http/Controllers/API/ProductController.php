@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(){ #unt
+    public function index(){ #untuk menammpilkan, sama aja kaya select * from produk
         $products = ProductModel::all(); #
         return response()->json([
             'status' => 'success',

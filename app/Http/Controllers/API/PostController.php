@@ -33,7 +33,12 @@ class PostController extends Controller
             'is_published'=> $validate['is_published'],
         ]);
 
-        return response()->json($post ,201);
+        $post->load('post_log');
+
+        return response()->json([
+            "post"=>$post,
+            "log_created"=>true,
+        ],201);
     }
    
 }

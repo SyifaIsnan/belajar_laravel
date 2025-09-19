@@ -9,7 +9,7 @@ class PostLogsModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'post_logs';
+    protected $table = 'posts_logs';
 
     protected $fillable = [
         'action',
@@ -19,8 +19,12 @@ class PostLogsModel extends Model
         
     ];
 
+    protected $casts = [
+        'changes'=>'array'
+    ];
+
     public function post(){
-        return $this->belongsTo(PostsModel::class);
+        return $this->belongsTo(PostsModel::class, 'post_id', 'id');
     }
 
      public function user(){
